@@ -5,6 +5,7 @@ import at.hochschule.burgenland.bswe.algo.io.CsvReader;
 import at.hochschule.burgenland.bswe.algo.model.Airport;
 import at.hochschule.burgenland.bswe.algo.model.Flight;
 import at.hochschule.burgenland.bswe.algo.model.Route;
+import at.hochschule.burgenland.bswe.algo.ui.Menu;
 
 import java.util.Iterator;
 import java.util.List;
@@ -54,5 +55,13 @@ public class FlightPlannerApplication {
         if (!routes.isEmpty()) {
             System.out.println("  - " + routes.size() + " gespeicherte Routen");
         }
+
+        Menu menu;
+        if (!routes.isEmpty()) {
+            menu = new Menu(graph, routes);
+        } else {
+            menu = new Menu(graph);
+        }
+        menu.start();
     }
 }
